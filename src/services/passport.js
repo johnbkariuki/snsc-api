@@ -30,11 +30,11 @@ const localLogin = new LocalStrategy(localOptions, async (email, password, done)
   try {
     user = await User.findOne({ email });
     if (!user) { // if cannot find user's email, return null
-      return done(null, false, { message: 'Incorrect email.' });
+      return done(null, false);
     }
     isMatch = await user.comparePassword(password);
     if (!isMatch) { // if cannot match password with the user's email, return null
-      return done(null, false, { message: 'Incorrect password.' });
+      return done(null, false);
     } else { // if password matches with the user's email, done with user
       return done(null, user);
     }

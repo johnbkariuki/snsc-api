@@ -43,6 +43,7 @@ router.post('/signup', async (req, res) => {
       token, name: req.body.name, email: req.body.email, password: req.body.password,
     });
   } catch (error) {
+    console.log(error);
     res.status(422).json({ error: error.toString() });
   }
 });

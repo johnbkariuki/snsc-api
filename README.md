@@ -1,10 +1,10 @@
-# SA6
+# SNSC DATABASE API
 
-*Express and Mongo*
+*Uses Express and Mongo*
 
-[Site URL](https://johnspoll.herokuapp.com/)
+[Site To Heroku Server](https://johnspoll.herokuapp.com/)
 
 ## Description
-Used various tools to create a computed page that needs a live running server process!
+Used to get and save data that the snsc application will need
 
 

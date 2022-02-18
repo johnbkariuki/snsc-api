@@ -12,7 +12,6 @@ const UserSchema = new Schema({
     transform(doc, ret, options) {
       ret.id = ret._id;
       delete ret._id;
-      // do not reveal passwordHash
       delete ret.password;
       delete ret.__v;
       return ret;

@@ -10,8 +10,8 @@ router.get('/', (req, res) => {
 
 const handleGetUser = async (req, res) => {
   try {
-    const result = await userController.getUser(req.params.id);
-    console.log(result);
+    console.log(req.user);
+    const result = await userController.getUser(req.user.id);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: error.toString() });
@@ -50,7 +50,7 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', requireSignin, async (req, res) => {
   try {
-    const token = userController.login(req.body);
+    const token = userController.login(req.user);
     res.json({
       token, name: req.body.name, email: req.body.email, password: req.body.password,
     });
@@ -59,7 +59,7 @@ router.post('/login', requireSignin, async (req, res) => {
   }
 });
 
-router.route('/users/:id').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
+router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/users').get(handleGetAllUsers);
 
 export default router;

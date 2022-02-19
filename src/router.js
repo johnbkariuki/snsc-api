@@ -109,7 +109,7 @@ const handleCreateOrganization = async (req, res) => {
 };
 
 // routes
-router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
+router.route('/users').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/users').get(handleGetAllUsers);
 router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
 router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);

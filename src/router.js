@@ -108,10 +108,21 @@ const handleCreateOrganization = async (req, res) => {
   }
 };
 
+const AddAllOrganizationInfo = async (req, res) => {
+  try {
+    const result = await organizationController.readJsonFile('./json_files/snsc_organization_data.json');
+    await organizationController.addAllOrganizationInfo(result);
+    res.send('Success');
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
 router.route('/users').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/users').get(handleGetAllUsers);
 router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
 router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);
+router.route('/load_data/organizations').post(AddAllOrganizationInfo);
 
 export default router;

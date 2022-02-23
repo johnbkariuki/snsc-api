@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+import fs from 'fs';
 import Organization from '../models/organization_model';
 
 export const createOrganization = async (organizationFields) => {
@@ -56,5 +57,27 @@ export const updateOrganization = async (organizationId, organizationFields) => 
     return organization;
   } catch (error) {
     throw new Error(`could not update organization info ${error}`);
+  }
+};
+
+export const readJsonFile = async (filePath) => {
+  try {
+    const encoding = 'utf8';
+    const rawData = fs.readFileSync(filePath, encoding);
+    const jsonData = JSON.parse(rawData);
+    return jsonData;
+  } catch (error) {
+    throw new Error(`could not read json file ${error}`);
+  }
+};
+
+export const addAllOrganizationInfo = async (jsonData) => {
+  try {
+    // eslint-disable-next-line no-plusplus
+    for (let i = 0; i < jsonData.organizations.length; i++) {
+      createOrganization(jsonData.organizations[i]);
+    }
+  } catch (error) {
+    throw new Error(`could not save all organization info ${error}`);
   }
 };

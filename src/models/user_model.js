@@ -5,6 +5,11 @@ const UserSchema = new Schema({
   name: { type: String },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
+  dateOfBirth: { type: String },
+  location: { type: String },
+  disability: { type: String },
+  insurance: { type: String },
+  favoriteIds: [String],
 }, {
   toObject: { virtuals: true },
   toJSON: {

@@ -34,7 +34,7 @@ const localLogin = new LocalStrategy(localOptions, async (email, password, done)
     }
     isMatch = await user.comparePassword(password);
     if (!isMatch) { // if cannot match password with the user's email, return null
-      console.log('here');
+      console.log('passwords dont match');
       return done(null, false);
     } else { // if password matches with the user's email, done with user
       return done(null, user);

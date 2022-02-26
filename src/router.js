@@ -5,6 +5,7 @@ import { requireAuth, requireSignin } from './services/passport';
 
 const router = Router();
 
+// homepage
 router.get('/', (req, res) => {
   res.json({ message: 'Hello! Welcome to the SNSC database API' });
 });
@@ -54,7 +55,7 @@ router.post('/login', requireSignin, async (req, res) => {
   try {
     const token = userController.login(req.user);
     res.json({
-      token, name: req.body.name, email: req.body.email, password: req.body.password,
+      token, name: req.user.name, email: req.user.email, password: req.body.password,
     });
   } catch (error) {
     res.status(422).json({ error: error.toString() });
@@ -108,7 +109,7 @@ const handleCreateOrganization = async (req, res) => {
   }
 };
 
-const AddAllOrganizationInfo = async (req, res) => {
+const addAllOrganizationInfo = async (req, res) => {
   try {
     const result = await organizationController.readJsonFile('./json_files/snsc_organization_data.json');
     await organizationController.addAllOrganizationInfo(result);
@@ -118,11 +119,41 @@ const AddAllOrganizationInfo = async (req, res) => {
   }
 };
 
+const handleSaveToFavorites = async (req, res) => {
+  try {
+    await organizationController.saveToFavorites(req.params.id, req.user);
+    res.send('Success');
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleGetAllFavorites = async (req, res) => {
+  try {
+    const organizations = await organizationController.getAllFavorites(req.user.favoriteIds);
+    res.json(organizations);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleRemoveFromFavorites = async (req, res) => {
+  try {
+    await organizationController.removeFromFavorites(req.params.id, req.user);
+    res.send('Success');
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
-router.route('/users').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
+router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
+router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
+router.route('/user/favorites/remove/:id').put(requireAuth, handleRemoveFromFavorites);
+router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);
 router.route('/users').get(handleGetAllUsers);
 router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
 router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);
-router.route('/load_data/organizations').post(AddAllOrganizationInfo);
+router.route('/load_data/organizations').post(addAllOrganizationInfo);
 
 export default router;

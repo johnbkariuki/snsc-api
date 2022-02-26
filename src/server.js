@@ -13,7 +13,9 @@ const app = express();
 // DB Setup
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost/snsc';
 
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }).then(() => {
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false,
+}).then(() => {
   console.log('connected to database:', mongoURI);
 }).catch((err) => {
   console.log('error: could not connect to db:', err);

@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import fs from 'fs';
 import Organization from '../models/organization_model';
+import User from '../models/user_model';
 
 export const createOrganization = async (organizationFields) => {
   const organization = new Organization();
@@ -45,6 +46,7 @@ export const getOrganization = async (id) => {
 export const deleteOrganization = async (organizationId) => {
   try {
     const result = await Organization.findByIdAndRemove(organizationId);
+    await User.updateMany({}, { $pullAll: { favoriteIds: [organizationId] } });
     return result;
   } catch (error) {
     throw new Error(`could not delete organization info: ${error}`);
@@ -79,5 +81,33 @@ export const addAllOrganizationInfo = async (jsonData) => {
     }
   } catch (error) {
     throw new Error(`could not save all organization info ${error}`);
+  }
+};
+
+export const saveToFavorites = async (organizationId, user) => {
+  try {
+    await User.updateOne(
+      { _id: user.id },
+      { $push: { favoriteIds: organizationId } },
+    );
+  } catch (error) {
+    throw new Error(`could not organization to favorites ${error}`);
+  }
+};
+
+export const getAllFavorites = async (favoriteIdsList) => {
+  try {
+    const organizations = await Organization.find({ _id: { $in: favoriteIdsList } });
+    return organizations;
+  } catch (error) {
+    throw new Error(`could not get all favorite organizations ${error}`);
+  }
+};
+
+export const removeFromFavorites = async (organizationId, user) => {
+  try {
+    await User.updateOne({ _id: user.id }, { $pullAll: { favoriteIds: [organizationId] } });
+  } catch (error) {
+    throw new Error(`could not remove from favorites ${error}`);
   }
 };

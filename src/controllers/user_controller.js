@@ -24,6 +24,11 @@ export const signup = async ({ name, email, password }) => {
   user.name = name;
   user.email = email;
   user.password = password;
+  user.dateOfBirth = '';
+  user.location = '';
+  user.disability = '';
+  user.insurance = '';
+  user.favoriteIds = [];
 
   try {
     const savedUser = await user.save();
@@ -52,7 +57,7 @@ export const getUser = async (id) => {
   }
 };
 
-// make sure it updates everything but the userId and password
+// make sure it updates everything but the userId
 export const updateUser = async (userId, userFields) => {
   try {
     let user = await User.findOne({ _id: userId });

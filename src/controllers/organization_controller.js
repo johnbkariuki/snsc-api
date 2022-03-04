@@ -6,16 +6,26 @@ import User from '../models/user_model';
 export const createOrganization = async (organizationFields) => {
   const organization = new Organization();
   organization.name = organizationFields.name;
-  organization.service = organizationFields.service;
-  organization.contactName = organizationFields.contactName;
-  organization.email = organizationFields.email;
-  organization.phone = organizationFields.phone;
-  organization.website = organizationFields.website;
-  organization.disability = organizationFields.disability;
-  organization.townServed = organizationFields.townServed;
-  organization.age = organizationFields.age;
-  organization.serviceFee = organizationFields.serviceFee;
-  organization.insurance = organizationFields.insurance;
+  organization.descriptions = organizationFields.descriptions;
+  organization.primaryContactName = organizationFields.primaryContactName;
+  organization.primaryContactRole = organizationFields.primaryContactRole;
+  organization.primaryEmail = organizationFields.primaryEmail;
+  organization.fullEmail = organizationFields.fullEmail;
+  organization.primaryPhoneNumber = organizationFields.primaryPhoneNumber;
+  organization.fullPhoneNumber = organizationFields.fullPhoneNumber;
+  organization.primaryWebsite = organizationFields.primaryWebsite;
+  organization.fullWebsite = organizationFields.fullWebsite;
+  organization.disabilitiesServed = organizationFields.disabilitiesServed;
+  organization.statesServed = organizationFields.statesServed;
+  organization.agesServed = organizationFields.agesServed;
+  organization.fee = organizationFields.fee;
+  organization.feeDescription = organizationFields.feeDescription;
+
+  if (organizationFields.insurancesAccepted === '') {
+    organization.insurancesAccepted = [];
+  } else {
+    organization.insurancesAccepted = organizationFields.insurancesAccepted;
+  }
 
   try {
     const savedOrganization = await organization.save();
@@ -91,7 +101,7 @@ export const saveToFavorites = async (organizationId, user) => {
       { $push: { favoriteIds: organizationId } },
     );
   } catch (error) {
-    throw new Error(`could not organization to favorites ${error}`);
+    throw new Error(`could not save organization to favorites ${error}`);
   }
 };
 

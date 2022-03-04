@@ -111,7 +111,7 @@ const handleCreateOrganization = async (req, res) => {
 
 const addAllOrganizationInfo = async (req, res) => {
   try {
-    const result = await organizationController.readJsonFile('./json_files/snsc_organization_data.json');
+    const result = await organizationController.readJsonFile('./json_files/normalized_organization_resources.json');
     await organizationController.addAllOrganizationInfo(result);
     res.send('Success');
   } catch (error) {

@@ -121,3 +121,78 @@ export const removeFromFavorites = async (organizationId, user) => {
     throw new Error(`could not remove from favorites ${error}`);
   }
 };
+
+export const autoComplete = async (searchFields) => {
+  try {
+    const result = await Organization.aggregate([
+      {
+        $search: {
+          index: 'autocomplete',
+          compound: {
+            must: [
+              {
+                text: {
+                  query: searchFields.name,
+                  path: 'name',
+                  fuzzy: {
+                    maxEdits: 2,
+                  },
+                },
+              },
+            ],
+          },
+        },
+      },
+      {
+        $limit: 10,
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          descriptions: 1,
+          score: { $meta: 'searchScore' },
+        },
+      },
+    ]);
+
+    return result;
+  } catch (error) {
+    throw new Error(`could not get autocomplete result ${error}`);
+  }
+};
+
+export const searchOrganizations = async (searchFields) => {
+  try {
+    const filters = [];
+
+    if (searchFields.disabilities != null) {
+      filters.push({ disabilitiesServed: { $all: searchFields.disabilities } });
+    }
+
+    if (searchFields.states != null) {
+      filters.push({ statesServed: { $all: searchFields.states } });
+    }
+
+    if (searchFields.insurances != null) {
+      filters.push({ $or: [{ insurancesAccepted: { $all: searchFields.insurances } }, { insurancesAccepted: { $size: 0 } }] });
+    }
+
+    if (searchFields.age != null) {
+      filters.push({ $or: [{ 'agesServed.lowerRange': { $lte: searchFields.age }, 'agesServed.upperRange': { $gte: searchFields.age } }, { 'agesServed.allAges': true }] });
+    }
+
+    // return all organizations
+    if (filters.length === 0) {
+      const searchResult = await Organization.find({});
+      return searchResult;
+    } else {
+      const searchResult = await Organization.find({
+        $and: filters,
+      });
+      return searchResult;
+    }
+  } catch (error) {
+    throw new Error(`could not get search result ${error}`);
+  }
+};

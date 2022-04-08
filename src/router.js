@@ -146,6 +146,24 @@ const handleRemoveFromFavorites = async (req, res) => {
   }
 };
 
+const handleAutocomplete = async (req, res) => {
+  try {
+    const result = await organizationController.autoComplete(req.body);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleSearchOrganizations = async (req, res) => {
+  try {
+    const searchResult = await organizationController.searchOrganizations(req.body);
+    res.json(searchResult);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
@@ -154,6 +172,8 @@ router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);
 router.route('/users').get(handleGetAllUsers);
 router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
 router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);
+router.route('/search/organizations').get(handleSearchOrganizations);
+router.route('/autocomplete/organizations').get(handleAutocomplete);
 router.route('/load_data/organizations').post(addAllOrganizationInfo);
 
 export default router;

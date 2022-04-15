@@ -39,6 +39,15 @@ const handleUpdateUser = async (req, res) => {
   }
 };
 
+const handleUpdatePassword = async (req, res) => {
+  try {
+    const result = await userController.updatePassword(req.user.id, req.body);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 router.post('/signup', async (req, res) => {
   try {
     const token = await userController.signup(req.body);
@@ -111,7 +120,7 @@ const handleCreateOrganization = async (req, res) => {
 
 const addAllOrganizationInfo = async (req, res) => {
   try {
-    const result = await organizationController.readJsonFile('./json_files/normalized_organization_resources.json');
+    const result = await organizationController.readJsonFile('./json_files/updated_organization_resources.json');
     await organizationController.addAllOrganizationInfo(result);
     res.send('Success');
   } catch (error) {
@@ -166,6 +175,7 @@ const handleSearchOrganizations = async (req, res) => {
 
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
+router.route('/user/password').put(requireAuth, handleUpdatePassword);
 router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
 router.route('/user/favorites/remove/:id').put(requireAuth, handleRemoveFromFavorites);
 router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);

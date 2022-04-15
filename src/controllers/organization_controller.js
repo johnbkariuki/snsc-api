@@ -16,7 +16,10 @@ export const createOrganization = async (organizationFields) => {
   organization.primaryWebsite = organizationFields.primaryWebsite;
   organization.fullWebsite = organizationFields.fullWebsite;
   organization.disabilitiesServed = organizationFields.disabilitiesServed;
+  organization.servicesProvided = organizationFields.servicesProvided;
   organization.statesServed = organizationFields.statesServed;
+  organization.townsNewHampshire = organizationFields.townsNewHampshire;
+  organization.townsVermont = organizationFields.townsVermont;
   organization.agesServed = organizationFields.agesServed;
   organization.fee = organizationFields.fee;
   organization.feeDescription = organizationFields.feeDescription;
@@ -170,12 +173,22 @@ export const searchOrganizations = async (searchFields) => {
       filters.push({ disabilitiesServed: { $all: searchFields.disabilities } });
     }
 
+    if (searchFields.services != null) {
+      filters.push({ servicesProvided: { $all: searchFields.services } });
+    }
+
     if (searchFields.states != null) {
       filters.push({ statesServed: { $all: searchFields.states } });
     }
 
     if (searchFields.insurances != null) {
       filters.push({ $or: [{ insurancesAccepted: { $all: searchFields.insurances } }, { insurancesAccepted: { $size: 0 } }] });
+    }
+
+    if (searchFields.fee != null) {
+      if (searchFields.fee === 'YES') {
+        filters.push({ fee: 'true' });
+      } else if (searchFields.fee === 'NO') { filters.push({ fee: 'false' }); }
     }
 
     if (searchFields.age != null) {

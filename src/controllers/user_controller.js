@@ -1,5 +1,6 @@
 import jwt from 'jwt-simple';
 import dotenv from 'dotenv';
+import bcrypt from 'bcryptjs';
 import User from '../models/user_model';
 
 dotenv.config({ silent: true });
@@ -73,7 +74,7 @@ export const updateUser = async (userId, userFields) => {
     user = await User.findOneAndUpdate({ _id: userId }, userFields, { new: true });
     return user;
   } catch (error) {
-    throw new Error(`${error}`);
+    throw new Error(`Could not update user: ${error}`);
   }
 };
 
@@ -82,3 +83,21 @@ function tokenForUser(user) {
   const timestamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat: timestamp }, process.env.AUTH_SECRET);
 }
+
+export const updatePassword = async (userId, passwords) => {
+  try {
+    let user = await User.findOne({ _id: userId });
+    const isMatch = await user.comparePassword(passwords.old);
+    if (!isMatch) { // old password does not match
+      throw new Error('Passwords dont match');
+    } else { // old password matches
+      // salt, hash, then set password to hash
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(passwords.new, salt);
+      user = await User.findOneAndUpdate({ _id: userId }, { password: hash }, { new: true });
+      return user;
+    }
+  } catch (error) {
+    throw new Error(`Could not update password: ${error}`);
+  }
+};

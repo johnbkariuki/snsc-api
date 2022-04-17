@@ -157,6 +157,7 @@ const handleRemoveFromFavorites = async (req, res) => {
 
 const handleAutocomplete = async (req, res) => {
   try {
+    console.log(req.body);
     const result = await organizationController.autoComplete(req.body);
     res.json(result);
   } catch (error) {

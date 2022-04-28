@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import * as userController from './controllers/user_controller';
 import * as organizationController from './controllers/organization_controller';
+import * as filterController from './controllers/filters_controller';
 import { requireAuth, requireSignin } from './services/passport';
 
 const router = Router();
@@ -174,6 +175,43 @@ const handleSearchOrganizations = async (req, res) => {
   }
 };
 
+// filter functions
+const handleGetAllDisabilityFilters = async (req, res) => {
+  try {
+    const result = await filterController.getAllDisabilityFilters();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleGetAllServiceFilters = async (req, res) => {
+  try {
+    const result = await filterController.getAllServiceFilters();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleGetAllStateFilters = async (req, res) => {
+  try {
+    const result = await filterController.getAllStateFilters();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleGetAllInsuranceFilters = async (req, res) => {
+  try {
+    const result = await filterController.getAllInsuranceFilters();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/user/password').put(requireAuth, handleUpdatePassword);
@@ -181,10 +219,15 @@ router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
 router.route('/user/favorites/remove/:id').put(requireAuth, handleRemoveFromFavorites);
 router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);
 router.route('/users').get(handleGetAllUsers);
+// add requireAuth
 router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
 router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);
 router.route('/search/organizations').post(handleSearchOrganizations);
 router.route('/autocomplete/organizations').post(handleAutocomplete);
 router.route('/load_data/organizations').post(addAllOrganizationInfo);
+router.route('/filters/disabilities').get(handleGetAllDisabilityFilters);
+router.route('/filters/services').get(handleGetAllServiceFilters);
+router.route('/filters/states').get(handleGetAllStateFilters);
+router.route('/filters/insurances').get(handleGetAllInsuranceFilters);
 
 export default router;

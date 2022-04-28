@@ -1,6 +1,8 @@
+/* eslint-disable no-await-in-loop */
 /* eslint-disable import/prefer-default-export */
 import fs from 'fs';
 import Organization from '../models/organization_model';
+import * as filterController from './filters_controller';
 import User from '../models/user_model';
 
 export const createOrganization = async (organizationFields) => {
@@ -29,6 +31,8 @@ export const createOrganization = async (organizationFields) => {
   } else {
     organization.insurancesAccepted = organizationFields.insurancesAccepted;
   }
+
+  await filterController.addFilters(organization);
 
   try {
     const savedOrganization = await organization.save();
@@ -59,6 +63,7 @@ export const getOrganization = async (id) => {
 export const deleteOrganization = async (organizationId) => {
   try {
     const result = await Organization.findByIdAndRemove(organizationId);
+    await filterController.deleteFilters(result);
     await User.updateMany({}, { $pullAll: { favoriteIds: [organizationId] } });
     return result;
   } catch (error) {
@@ -68,6 +73,9 @@ export const deleteOrganization = async (organizationId) => {
 
 export const updateOrganization = async (organizationId, organizationFields) => {
   try {
+    const oldOrganization = await Organization.findById(organizationId).exec();
+    await filterController.updateAllFilters(oldOrganization, organizationFields);
+
     const organization = await Organization.findOneAndUpdate({ _id: organizationId }, organizationFields, { new: true });
     return organization;
   } catch (error) {
@@ -90,7 +98,7 @@ export const addAllOrganizationInfo = async (jsonData) => {
   try {
     // eslint-disable-next-line no-plusplus
     for (let i = 0; i < jsonData.organizations.length; i++) {
-      createOrganization(jsonData.organizations[i]);
+      await createOrganization(jsonData.organizations[i]);
     }
   } catch (error) {
     throw new Error(`could not save all organization info ${error}`);
@@ -124,6 +132,20 @@ export const removeFromFavorites = async (organizationId, user) => {
     throw new Error(`could not remove from favorites ${error}`);
   }
 };
+
+// place below code in MongoDB when you delete all the organizations and add them all again
+// index name = autocomplete
+// {
+//   "mappings": {
+//     "dynamic": false,
+//     "fields": {
+//       "name": {
+//         "analyzer": "lucene.standard",
+//         "type": "string"
+//       }
+//     }
+//   }
+// }
 
 export const autoComplete = async (searchFields) => {
   try {
@@ -186,20 +208,24 @@ export const searchOrganizations = async (searchFields) => {
   try {
     const filters = [];
 
+    // The $in operator selects the documents where the value of a field equals any value in the specified array.
+
     if (searchFields.disabilities != null) {
-      filters.push({ disabilitiesServed: { $all: searchFields.disabilities } });
+      filters.push({ disabilitiesServed: { $in: searchFields.disabilities } });
     }
 
     if (searchFields.services != null) {
-      filters.push({ servicesProvided: { $all: searchFields.services } });
+      filters.push({ servicesProvided: { $in: searchFields.services } });
     }
 
     if (searchFields.states != null) {
-      filters.push({ statesServed: { $all: searchFields.states } });
+      filters.push({ statesServed: { $in: searchFields.states } });
     }
 
     if (searchFields.insurances != null) {
-      filters.push({ $or: [{ insurancesAccepted: { $all: searchFields.insurances } }, { insurancesAccepted: { $size: 0 } }] });
+      // if searchFields.insurances = ["None"] then { insurancesAccepted: { $in: searchFields.insurances } } will return no result and
+      // we will only return the results for { insurancesAccepted: { $size: 0 } } which is when no insurance is required
+      filters.push({ $or: [{ insurancesAccepted: { $in: searchFields.insurances } }, { insurancesAccepted: { $size: 0 } }] });
     }
 
     if (searchFields.fee != null) {

@@ -1,0 +1,31 @@
+{ "faqs": [
+    {
+        "question": "What resources are included in this app?",
+        "answer": "The Special Needs Support Center has collected this extensive list of disability-related resources and services throughout the Upper Valley. These organizations support variety of needs, this app can help you find and access a resource that is tailored exactly to what you are looking for!"
+    },
+    {
+        "question": "Are these resources kept up to date?",
+        "answer": "Yes, we are able to edit all the resources and their details to make sure everything is accurate! If a resource stops serving the Upper Valley or a new resource pops up, we can make the change so you always see up to date information!"
+    },
+    {
+        "question": "Do I have to make an account?",
+        "answer": "Without creating an account, you still have access to all the Upper Valley resources collected by the Special Needs Support Center. If you choose to make an account, you can \"favorite\" resources as well as store your own personalized search filters!"
+    },
+    {
+        "question": "Why should I \"favorite\" a resource?",
+        "answer": "Once you are logged in, you should \"favorite\" resource if you want easy access to that resource later. Maybe you want to call the resource another time or you want to remember a great resource that you may forget. There are many reasons to \"favorite\" a resource!"
+    },
+    {
+        "question": "How do the filters work when searching for resources?",
+        "answer": "If you select multiple options for a specific filter, the search will return every resource that matches any of those selected options for that filter. For each additional filter you set, the search will match any options for that filter and make sure the resulting resources also match any of the options you set on the remaining filters. For example, if you select \"Autism Spectrum Disorder\" for the disabilities filter and both \"NH\" and \"VT\" for the states filter, the search results will include the resources that serve \"Autism Spectrum Disorder\" that are either in \"NH\" or \"VT\"."
+    },
+    {
+        "question": "What kind of feedback can I provide?",
+        "answer": "You can provide any feedback that you would like! If you try to access a resource and it's phone number or email have changed, you can let us know! If you would like recommend a new resource for our app, you can do that too! Anything helps!"
+    },
+    {
+        "question": "I just found a bug in this app! What should I do?",
+        "answer": "Please use the Feedback to report the issue to the Special Needs Support Center, and it will get fixed as soon as possible. You can also receive immediate assistance by calling the Special Needs Support Center at (603) 448-6311."
+    }
+]
+}

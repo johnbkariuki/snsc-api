@@ -15,7 +15,7 @@ export const createFaq = async (faqFields) => {
   }
 };
 
-export const deleteOrganization = async (faqId) => {
+export const deleteFaq = async (faqId) => {
   try {
     const result = await Faq.findByIdAndRemove(faqId);
     return result;
@@ -24,7 +24,7 @@ export const deleteOrganization = async (faqId) => {
   }
 };
 
-export const updateOrganization = async (faqId, faqFields) => {
+export const updateFaq = async (faqId, faqFields) => {
   try {
     const faq = await Faq.findOneAndUpdate({ _id: faqId }, faqFields, { new: true });
     return faq;

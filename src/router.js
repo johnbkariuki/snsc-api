@@ -2,6 +2,7 @@ import { Router } from 'express';
 import * as userController from './controllers/user_controller';
 import * as organizationController from './controllers/organization_controller';
 import * as filterController from './controllers/filters_controller';
+import * as faqController from './controllers/faq_controller';
 import { requireAuth, requireSignin } from './services/passport';
 
 const router = Router();
@@ -121,7 +122,7 @@ const handleCreateOrganization = async (req, res) => {
 
 const addAllOrganizationInfo = async (req, res) => {
   try {
-    const result = await organizationController.readJsonFile('./json_files/updated_organization_resources.json');
+    const result = await organizationController.readJsonFile('./json_files/resources.json');
     await organizationController.addAllOrganizationInfo(result);
     res.send('Success');
   } catch (error) {
@@ -212,6 +213,53 @@ const handleGetAllInsuranceFilters = async (req, res) => {
   }
 };
 
+// FAQ routes
+const handleGetAllFaqs = async (req, res) => {
+  try {
+    const result = await faqController.getAllFaqs();
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleCreateFaq = async (req, res) => {
+  try {
+    const result = await faqController.createFaq(req.body);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleDeleteFaq = async (req, res) => {
+  try {
+    const result = await faqController.deleteFaq(req.params.id);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleUpdateFaq = async (req, res) => {
+  try {
+    const result = await faqController.updateFaq(req.params.id, req.body);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const addAllFaqInfo = async (req, res) => {
+  try {
+    const result = await faqController.readJsonFile('./json_files/faqs.json');
+    await faqController.addAllFaqInfo(result);
+    res.send('Success');
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/user/password').put(requireAuth, handleUpdatePassword);
@@ -219,15 +267,24 @@ router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
 router.route('/user/favorites/remove/:id').put(requireAuth, handleRemoveFromFavorites);
 router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);
 router.route('/users').get(handleGetAllUsers);
+
+// organization routes
 // add requireAuth
 router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
 router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);
 router.route('/search/organizations').post(handleSearchOrganizations);
 router.route('/autocomplete/organizations').post(handleAutocomplete);
 router.route('/load_data/organizations').post(addAllOrganizationInfo);
+
+// filter routes
 router.route('/filters/disabilities').get(handleGetAllDisabilityFilters);
 router.route('/filters/services').get(handleGetAllServiceFilters);
 router.route('/filters/states').get(handleGetAllStateFilters);
 router.route('/filters/insurances').get(handleGetAllInsuranceFilters);
+
+// faq routes
+router.route('/faq').get(handleGetAllFaqs).post(handleCreateFaq);
+router.route('/faq/:id').put(handleUpdateFaq).delete(handleDeleteFaq);
+router.route('/load_data/faq').post(addAllFaqInfo);
 
 export default router;

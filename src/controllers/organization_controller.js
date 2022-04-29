@@ -225,7 +225,8 @@ export const searchOrganizations = async (searchFields) => {
     if (searchFields.insurances != null) {
       // if searchFields.insurances = ["None"] then { insurancesAccepted: { $in: searchFields.insurances } } will return no result and
       // we will only return the results for { insurancesAccepted: { $size: 0 } } which is when no insurance is required
-      filters.push({ $or: [{ insurancesAccepted: { $in: searchFields.insurances } }, { insurancesAccepted: { $size: 0 } }] });
+      // filters.push({ $or: [{ insurancesAccepted: { $in: searchFields.insurances } }, { insurancesAccepted: { $size: 0 } }] });
+      filters.push({ insurancesAccepted: { $in: searchFields.insurances } });
     }
 
     if (searchFields.fee != null) {

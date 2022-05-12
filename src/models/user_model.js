@@ -10,6 +10,7 @@ const UserSchema = new Schema({
   disability: { type: String },
   insurance: { type: String },
   favoriteIds: [String],
+  isAdmin: { type: Boolean, default: false },
 }, {
   toObject: { virtuals: true },
   toJSON: {

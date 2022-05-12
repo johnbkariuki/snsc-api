@@ -52,9 +52,21 @@ const handleUpdatePassword = async (req, res) => {
 
 router.post('/signup', async (req, res) => {
   try {
-    const token = await userController.signup(req.body);
+    const result = await userController.signup(req.body);
     res.json({
-      token, name: req.body.name, email: req.body.email, password: req.body.password,
+      token: result.token, name: result.user.name, email: result.user.email, password: req.body.password, isAdmin: result.user.isAdmin,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(422).json({ error: error.toString() });
+  }
+});
+
+router.post('/admin/signup', async (req, res) => {
+  try {
+    const result = await userController.adminSignup(req.body);
+    res.json({
+      token: result.token, name: result.user.name, email: result.user.email, password: req.body.password, isAdmin: result.user.isAdmin,
     });
   } catch (error) {
     console.log(error);
@@ -66,7 +78,7 @@ router.post('/login', requireSignin, async (req, res) => {
   try {
     const token = userController.login(req.user);
     res.json({
-      token, name: req.user.name, email: req.user.email, password: req.body.password,
+      token, name: req.user.name, email: req.user.email, password: req.body.password, isAdmin: req.user.isAdmin,
     });
   } catch (error) {
     res.status(422).json({ error: error.toString() });

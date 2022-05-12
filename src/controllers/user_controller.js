@@ -33,7 +33,37 @@ export const signup = async ({ name, email, password }) => {
 
   try {
     const savedUser = await user.save();
-    return tokenForUser(savedUser);
+    return { token: tokenForUser(savedUser), user: savedUser };
+  } catch (error) {
+    throw new Error(`signup error: ${error}`);
+  }
+};
+
+export const adminSignup = async ({ name, email, password }) => {
+  if (!email || !password) {
+    throw new Error('You must provide email and password');
+  }
+
+  // See if a user with the given email exists
+  const existingUser = await User.findOne({ email });
+  if (existingUser) {
+    throw new Error('Email is in use');
+  }
+
+  const user = new User();
+  user.name = name;
+  user.email = email;
+  user.password = password;
+  user.dateOfBirth = '';
+  user.location = '';
+  user.disability = '';
+  user.insurance = '';
+  user.favoriteIds = [];
+  user.isAdmin = true;
+
+  try {
+    const savedUser = await user.save();
+    return { token: tokenForUser(savedUser), user: savedUser };
   } catch (error) {
     throw new Error(`signup error: ${error}`);
   }

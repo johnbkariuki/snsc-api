@@ -1,9 +1,35 @@
+/* eslint-disable prefer-destructuring */
 import jwt from 'jwt-simple';
 import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import User from '../models/user_model';
 
+// loads in .env file if needed
 dotenv.config({ silent: true });
+
+const nodemailer = require('nodemailer');
+
+const { google } = require('googleapis');
+
+const otpGenerator = require('otp-generator');
+
+const crypto = require('crypto');
+
+// Key for cryptograpy
+const key = process.env.OTP_SECRET_KEY;
+
+const CLIENT_ID = process.env.CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET;
+const REDIRECT_URI = process.env.REDIRECT_URI;
+const REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+
+const oAuth2Client = new google.auth.OAuth2(
+  CLIENT_ID,
+  CLIENT_SECRET,
+  REDIRECT_URI,
+);
+
+oAuth2Client.setCredentials({ refresh_token: REFRESH_TOKEN });
 
 // login and signup functions
 export const login = (user) => {
@@ -130,4 +156,107 @@ export const updatePassword = async (userId, passwords) => {
   } catch (error) {
     throw new Error(`Could not update password: ${error}`);
   }
+};
+
+const sendMail = async (otp, userEmail) => {
+  try {
+    const accessToken = await oAuth2Client.getAccessToken();
+
+    const transport = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: 'snscapp@gmail.com',
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET,
+        refreshToken: REFRESH_TOKEN,
+        // accessToken = accessToken
+        accessToken,
+      },
+    });
+
+    const email = await transport.sendMail({
+      from: 'SNSC App ✉️ <snscapp@gmail.com>',
+      to: userEmail,
+      subject: 'Password Reset',
+      html: `
+      <div
+        class="container"
+        style="max-width: 90%; margin: auto; padding-top: 20px"
+      >
+        <h2>Password Reset</h2>
+        <p style="margin-bottom: 30px;">Please use the following code to reset your password</p>
+        <h1 style="font-size: 40px; letter-spacing: 2px; text-align:center;">${otp}</h1>
+   </div>
+    `,
+    });
+    return email;
+  } catch (error) {
+    throw new Error(`Could not send OTP email: ${error}`);
+  }
+};
+
+export const createNewOTP = async (userEmail) => {
+  // See if a user with the given email exists
+  // const existingUser = await User.findOne({ userEmail });
+  // if (!existingUser) {
+  //   throw new Error('Email address given is not associated with a registered account');
+  // }
+
+  try {
+  // Generate a 4 digit numeric OTP
+    const otp = otpGenerator.generate(5, {
+      lowerCaseAlphabets: false,
+      upperCaseAlphabets: false,
+      specialChars: false,
+    });
+
+    // 10 Minutes in miliseconds
+    const ttl = 10 * 60 * 1000;
+
+    // timestamp to 10 minutes in the future
+    const expires = Date.now() + ttl;
+
+    // phone.otp.expiry_timestamp
+    const data = `${userEmail}.${otp}.${expires}`;
+
+    // creating SHA256 hash of the data
+    const hash = crypto.createHmac('sha256', key).update(data).digest('hex');
+
+    // full has  = Hash + expires
+    // format to send to the user
+    const fullHash = `${hash}.${expires}`;
+
+    await sendMail(otp, userEmail);
+
+    return fullHash;
+  } catch (error) {
+    throw new Error(`Failed to Create OTP: ${error}`);
+  }
+};
+
+export const verifyOTP = async (params) => {
+  // Separate hash value and expires from the fullhash that was input
+  const [hashValue, expires] = params.hash.split('.');
+
+  // Check if expiry time has passed
+  const now = Date.now();
+
+  if (now > parseInt(expires, 10)) {
+    throw new Error('Your OTP has expired');
+  }
+
+  // Calculate new hash with the same key and the same algorithm
+  const data = `${params.userEmail}.${params.otp}.${expires}`;
+
+  const newCalculatedHash = crypto
+    .createHmac('sha256', key)
+    .update(data)
+    .digest('hex');
+
+  // Match the hashes
+  if (newCalculatedHash === hashValue) {
+    return 'Successfully verified';
+  }
+  throw new Error('Invalid OTP');
 };

@@ -272,6 +272,26 @@ const addAllFaqInfo = async (req, res) => {
   }
 };
 
+// otp
+const handleCreateOTP = async (req, res) => {
+  try {
+    const result = await userController.createNewOTP(req.body.userEmail);
+    res.json({ fullHash: result });
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleVerifyOTP = async (req, res) => {
+  try {
+    // req.body needs userEmail, otp, and fullhash
+    const result = await userController.verifyOTP(req.body);
+    res.json({ message: result });
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/user/password').put(requireAuth, handleUpdatePassword);
@@ -298,5 +318,9 @@ router.route('/filters/insurances').get(handleGetAllInsuranceFilters);
 router.route('/faq').get(handleGetAllFaqs).post(handleCreateFaq);
 router.route('/faq/:id').put(handleUpdateFaq).delete(handleDeleteFaq);
 router.route('/load_data/faq').post(addAllFaqInfo);
+
+// otp routes
+router.route('/otp').post(handleCreateOTP);
+router.route('/verifyOTP').post(handleVerifyOTP);
 
 export default router;

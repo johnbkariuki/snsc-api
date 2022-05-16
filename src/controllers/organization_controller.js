@@ -25,6 +25,7 @@ export const createOrganization = async (organizationFields) => {
   organization.agesServed = organizationFields.agesServed;
   organization.fee = organizationFields.fee;
   organization.feeDescription = organizationFields.feeDescription;
+  organization.imageURL = organizationFields.imageURL;
 
   if (organizationFields.insurancesAccepted === '') {
     organization.insurancesAccepted = [];

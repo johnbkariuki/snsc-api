@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { Router } from 'express';
 import * as userController from './controllers/user_controller';
 import * as organizationController from './controllers/organization_controller';
@@ -6,11 +7,52 @@ import * as faqController from './controllers/faq_controller';
 import { requireAuth, requireSignin } from './services/passport';
 
 const router = Router();
+const fs = require('fs');
+const util = require('util');
+
+const unlinkFile = util.promisify(fs.unlink);
+
+const multer = require('multer');
+
+const upload = multer({ dest: 'uploads/' });
+
+const { uploadFile, getFileStream } = require('./services/s3');
 
 // homepage
 router.get('/', (req, res) => {
   res.json({ message: 'Hello! Welcome to the SNSC database API' });
 });
+
+// image functions
+
+// upload the images
+// input is {image: file, organizationId}
+router.post('/images', upload.single('image'), async (req, res) => {
+  try {
+    const file = req.file;
+    console.log(file);
+    const result = await uploadFile(file);
+    await unlinkFile(file.path);
+    console.log(result);
+    res.send({ imagePath: `/images/${result.Key}` });
+  } catch (error) {
+    console.log(error);
+    res.status(422).json({ error: error.toString() });
+  }
+});
+
+// get the images
+const handleGetImage = async (req, res) => {
+  try {
+    const key = req.params.key;
+    const readStream = getFileStream(key);
+
+    readStream.pipe(res);
+    // use readStream to return the image to the client
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
 
 // user functions
 const handleGetUser = async (req, res) => {
@@ -322,5 +364,8 @@ router.route('/load_data/faq').post(addAllFaqInfo);
 // otp routes
 router.route('/otp').post(handleCreateOTP);
 router.route('/verifyOTP').post(handleVerifyOTP);
+
+// images routes
+router.route('/images/:key').get(handleGetImage);
 
 export default router;

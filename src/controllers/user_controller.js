@@ -176,7 +176,7 @@ const sendMail = async (otp, userEmail) => {
     });
 
     const email = await transport.sendMail({
-      from: 'SNSC App ✉️ <snscapp@gmail.com>',
+      from: 'SNSC App (No-Reply) <snscapp@gmail.com>',
       to: userEmail,
       subject: 'Password Reset',
       html: `

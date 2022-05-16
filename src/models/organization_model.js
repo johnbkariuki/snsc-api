@@ -21,6 +21,7 @@ const OrganizationSchema = new Schema({
   fee: { type: String },
   feeDescription: { type: String },
   insurancesAccepted: [String],
+  imageURL: { type: String },
 }, {
   toObject: { virtuals: true },
   toJSON: { virtuals: true },

@@ -198,10 +198,10 @@ const sendMail = async (otp, userEmail) => {
 
 export const createNewOTP = async (userEmail) => {
   // See if a user with the given email exists
-  // const existingUser = await User.findOne({ userEmail });
-  // if (!existingUser) {
-  //   throw new Error('Email address given is not associated with a registered account');
-  // }
+  const existingUser = await User.findOne({ userEmail });
+  if (!existingUser) {
+    throw new Error('Email address given is not associated with a registered account');
+  }
 
   try {
   // Generate a 4 digit numeric OTP

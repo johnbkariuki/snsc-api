@@ -22,7 +22,9 @@ mongoose.connect(mongoURI, {
 });
 
 // enable/disable cross origin resource sharing if necessary
-app.use(cors());
+app.use(cors({
+  origin: '*',
+}));
 
 // enable/disable http request logging
 app.use(morgan('dev'));

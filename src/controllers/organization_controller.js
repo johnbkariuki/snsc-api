@@ -175,7 +175,6 @@ export const autoComplete = async (searchFields) => {
       {
         $project: {
           _id: 1,
-          id: 1,
           name: 1,
           descriptions: 1,
           primaryContactName: 1,

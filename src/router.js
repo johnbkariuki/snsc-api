@@ -16,7 +16,7 @@ const multer = require('multer');
 
 const upload = multer({ dest: 'uploads/' });
 
-const { uploadFile, getFileStream } = require('./services/s3');
+const { uploadFile, getFileStream, deleteFile } = require('./services/s3');
 
 // homepage
 router.get('/', (req, res) => {
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 
 // upload the images
 // input is {image: file, organizationId}
-router.post('/images', upload.single('image'), async (req, res) => {
+router.post('/images', requireAuth, upload.single('image'), async (req, res) => {
   try {
     const file = req.file;
     console.log(file);
@@ -49,6 +49,17 @@ const handleGetImage = async (req, res) => {
 
     readStream.pipe(res);
     // use readStream to return the image to the client
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleDeleteImage = async (req, res) => {
+  try {
+    const key = req.params.key;
+    const result = deleteFile(key);
+
+    res.send(result);
   } catch (error) {
     res.status(500).json({ error: error.toString() });
   }
@@ -340,15 +351,15 @@ router.route('/user/password').put(requireAuth, handleUpdatePassword);
 router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
 router.route('/user/favorites/remove/:id').put(requireAuth, handleRemoveFromFavorites);
 router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);
-router.route('/users').get(handleGetAllUsers);
+router.route('/users').get(requireAuth, handleGetAllUsers);
 
 // organization routes
 // add requireAuth
-router.route('/organizations/:id').get(handleGetOrganization).put(handleUpdateOrganization).delete(handleDeleteOrganization);
-router.route('/organizations').get(handleGetAllOrganizations).post(handleCreateOrganization);
+router.route('/organizations/:id').get(requireAuth, handleGetOrganization).put(requireAuth, handleUpdateOrganization).delete(requireAuth, handleDeleteOrganization);
+router.route('/organizations').get(handleGetAllOrganizations).post(requireAuth, handleCreateOrganization);
 router.route('/search/organizations').post(handleSearchOrganizations);
 router.route('/autocomplete/organizations').post(handleAutocomplete);
-router.route('/load_data/organizations').post(addAllOrganizationInfo);
+router.route('/load_data/organizations').post(requireAuth, addAllOrganizationInfo);
 
 // filter routes
 router.route('/filters/disabilities').get(handleGetAllDisabilityFilters);
@@ -357,9 +368,9 @@ router.route('/filters/states').get(handleGetAllStateFilters);
 router.route('/filters/insurances').get(handleGetAllInsuranceFilters);
 
 // faq routes
-router.route('/faq').get(handleGetAllFaqs).post(handleCreateFaq);
-router.route('/faq/:id').put(handleUpdateFaq).delete(handleDeleteFaq);
-router.route('/load_data/faq').post(addAllFaqInfo);
+router.route('/faq').get(handleGetAllFaqs).post(requireAuth, handleCreateFaq);
+router.route('/faq/:id').put(requireAuth, handleUpdateFaq).delete(requireAuth, handleDeleteFaq);
+router.route('/load_data/faq').post(requireAuth, addAllFaqInfo);
 
 // otp routes
 router.route('/otp').post(handleCreateOTP);
@@ -367,5 +378,6 @@ router.route('/verifyOTP').post(handleVerifyOTP);
 
 // images routes
 router.route('/images/:key').get(handleGetImage);
+router.route('/images/:key').delete(requireAuth, handleDeleteImage);
 
 export default router;

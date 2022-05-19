@@ -235,7 +235,7 @@ export const createNewOTP = async (userEmail) => {
 
     // phone.otp.expiry_timestamp
     const data = `${userEmail}.${otp}.${expires}`;
-
+    console.log(data);
     // creating SHA256 hash of the data
     const hash = crypto.createHmac('sha256', key).update(data).digest('hex');
 

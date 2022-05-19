@@ -103,6 +103,15 @@ const handleUpdatePassword = async (req, res) => {
   }
 };
 
+const handleResetPassword = async (req, res) => {
+  try {
+    const result = await userController.resetPassword(req.user.id, req.body.newPassword);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 router.post('/signup', async (req, res) => {
   try {
     const result = await userController.signup(req.body);
@@ -338,8 +347,8 @@ const handleCreateOTP = async (req, res) => {
 const handleVerifyOTP = async (req, res) => {
   try {
     // req.body needs userEmail, otp, and fullhash
-    const result = await userController.verifyOTP(req.body);
-    res.json({ message: result });
+    const token = await userController.verifyOTP(req.body);
+    res.json({ token });
   } catch (error) {
     res.status(500).json({ error: error.toString() });
   }
@@ -348,6 +357,7 @@ const handleVerifyOTP = async (req, res) => {
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/user/password').put(requireAuth, handleUpdatePassword);
+router.route('/user/resetPassword').put(requireAuth, handleResetPassword);
 router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);
 router.route('/user/favorites/remove/:id').put(requireAuth, handleRemoveFromFavorites);
 router.route('/user/favorites').get(requireAuth, handleGetAllFavorites);

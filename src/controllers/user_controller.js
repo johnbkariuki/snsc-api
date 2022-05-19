@@ -158,6 +158,18 @@ export const updatePassword = async (userId, passwords) => {
   }
 };
 
+export const resetPassword = async (userId, newPassword) => {
+  try {
+    // salt, hash, then set password to hash
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(newPassword, salt);
+    const user = await User.findOneAndUpdate({ _id: userId }, { password: hash }, { new: true });
+    return user;
+  } catch (error) {
+    throw new Error(`Could not update password: ${error}`);
+  }
+};
+
 const sendMail = async (otp, userEmail) => {
   try {
     const accessToken = await oAuth2Client.getAccessToken();
@@ -170,7 +182,7 @@ const sendMail = async (otp, userEmail) => {
         clientId: CLIENT_ID,
         clientSecret: CLIENT_SECRET,
         refreshToken: REFRESH_TOKEN,
-        // accessToken = accessToken
+        // below is equivalent to accessToken = accessToken
         accessToken,
       },
     });
@@ -205,7 +217,7 @@ export const createNewOTP = async (userEmail) => {
 
   try {
   // Generate a 4 digit numeric OTP
-    const otp = otpGenerator.generate(5, {
+    const otp = otpGenerator.generate(4, {
       lowerCaseAlphabets: false,
       upperCaseAlphabets: false,
       specialChars: false,
@@ -256,7 +268,9 @@ export const verifyOTP = async (params) => {
 
   // Match the hashes
   if (newCalculatedHash === hashValue) {
-    return 'Successfully verified';
+    const email = params.userEmail;
+    const user = await User.findOne({ email });
+    return tokenForUser(user);
   }
   throw new Error('Invalid OTP');
 };

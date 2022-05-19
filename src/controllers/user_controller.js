@@ -172,6 +172,8 @@ export const resetPassword = async (userId, newPassword) => {
 
 const sendMail = async (otp, userEmail) => {
   try {
+    console.log('here');
+    console.log(userEmail);
     const accessToken = await oAuth2Client.getAccessToken();
 
     const transport = nodemailer.createTransport({
@@ -237,10 +239,12 @@ export const createNewOTP = async (userEmail) => {
     // creating SHA256 hash of the data
     const hash = crypto.createHmac('sha256', key).update(data).digest('hex');
 
+    console.log(hash);
     // full has  = Hash + expires
     // format to send to the user
     const fullHash = `${hash}.${expires}`;
 
+    console.log(userEmail);
     await sendMail(otp, userEmail);
 
     return fullHash;

@@ -210,8 +210,8 @@ const sendMail = async (otp, userEmail) => {
   }
 };
 
+// don't forget to add the .env file stuff to heroku
 export const createNewOTP = async (userEmail) => {
-  console.log(userEmail);
   // See if a user with the given email exists
   const existingUser = await User.findOne({ email: userEmail });
 
@@ -235,11 +235,10 @@ export const createNewOTP = async (userEmail) => {
 
     // phone.otp.expiry_timestamp
     const data = `${userEmail}.${otp}.${expires}`;
-    console.log(data);
+
     // creating SHA256 hash of the data
     const hash = crypto.createHmac('sha256', key).update(data).digest('hex');
 
-    console.log(hash);
     // full has  = Hash + expires
     // format to send to the user
     const fullHash = `${hash}.${expires}`;

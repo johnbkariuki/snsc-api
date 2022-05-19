@@ -209,6 +209,7 @@ const sendMail = async (otp, userEmail) => {
 };
 
 export const createNewOTP = async (userEmail) => {
+  console.log(userEmail);
   // See if a user with the given email exists
   const existingUser = await User.findOne({ email: userEmail });
 

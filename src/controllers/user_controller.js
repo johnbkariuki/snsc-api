@@ -17,7 +17,6 @@ const crypto = require('crypto');
 
 // Key for cryptograpy
 const key = process.env.OTP_SECRET_KEY;
-
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
@@ -172,8 +171,8 @@ export const resetPassword = async (userId, newPassword) => {
 
 const sendMail = async (otp, userEmail) => {
   try {
-    console.log('here');
-    console.log(userEmail);
+    // https://developers.google.com/oauthplayground/#step2&scopes=https%3A%2F%2Fmail.google.com&url=https%3A%2F%2F&content_type=application%2Fjson&http_method=GET&useDefaultOauthCred=checked&oauthEndpointSelect=Google&oauthAuthEndpointValue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&oauthTokenEndpointValue=https%3A%2F%2Foauth2.googleapis.com%2Ftoken&includeCredentials=unchecked&accessTokenType=bearer&autoRefreshToken=unchecked&accessType=offline&prompt=consent&response_type=code&wrapLines=on
+    // follow the above link in case of trouble
     const accessToken = await oAuth2Client.getAccessToken();
 
     const transport = nodemailer.createTransport({
@@ -186,6 +185,9 @@ const sendMail = async (otp, userEmail) => {
         refreshToken: REFRESH_TOKEN,
         // below is equivalent to accessToken = accessToken
         accessToken,
+      },
+      tls: {
+        rejectUnauthorized: false,
       },
     });
 
@@ -243,7 +245,6 @@ export const createNewOTP = async (userEmail) => {
     // format to send to the user
     const fullHash = `${hash}.${expires}`;
 
-    console.log(userEmail);
     await sendMail(otp, userEmail);
 
     return fullHash;

@@ -198,7 +198,7 @@ const addAllOrganizationInfo = async (req, res) => {
   try {
     const result = await organizationController.readJsonFile('./json_files/resources.json');
     await organizationController.addAllOrganizationInfo(result);
-    res.send('Success');
+    res.send('Successfully added all organization info');
   } catch (error) {
     res.status(500).json({ error: error.toString() });
   }

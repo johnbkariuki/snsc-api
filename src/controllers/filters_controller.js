@@ -49,19 +49,17 @@ export const updateFilter = async (Model, prevFilterOptions, currFilterOptions) 
     const newFilterOptions = currFilterOptions.filter((x) => { return !prevFilterOptions.includes(x); });
     // get the filter options that no longer apply to the organization
     const oldFilterOptions = prevFilterOptions.filter((x) => { return !currFilterOptions.includes(x); });
-    console.log(newFilterOptions);
-    console.log(oldFilterOptions);
-    addOrDeleteFilters(Model, newFilterOptions, 'add');
-    addOrDeleteFilters(Model, oldFilterOptions, 'delete');
+    await addOrDeleteFilters(Model, newFilterOptions, 'add');
+    await addOrDeleteFilters(Model, oldFilterOptions, 'delete');
   }
 };
 
 export const updateAllFilters = async (prevOrgFields, currOrgFields) => {
   try {
-    updateFilter(Disabilities, prevOrgFields.disabilitiesServed, currOrgFields.disabilitiesServed);
-    updateFilter(Services, prevOrgFields.servicesProvided, currOrgFields.servicesProvided);
-    updateFilter(States, prevOrgFields.statesServed, currOrgFields.statesServed);
-    updateFilter(Insurances, prevOrgFields.insurancesAccepted, currOrgFields.insurancesAccepted);
+    await updateFilter(Disabilities, prevOrgFields.disabilitiesServed, currOrgFields.disabilitiesServed);
+    await updateFilter(Services, prevOrgFields.servicesProvided, currOrgFields.servicesProvided);
+    await updateFilter(States, prevOrgFields.statesServed, currOrgFields.statesServed);
+    await updateFilter(Insurances, prevOrgFields.insurancesAccepted, currOrgFields.insurancesAccepted);
   } catch (error) {
     throw new Error(`Could not update filters: ${error}`);
   }
@@ -69,12 +67,12 @@ export const updateAllFilters = async (prevOrgFields, currOrgFields) => {
 
 export const addFilters = async (organizationFields) => {
   try {
-    addOrDeleteFilters(Disabilities, organizationFields.disabilitiesServed, 'add');
-    addOrDeleteFilters(Services, organizationFields.servicesProvided, 'add');
-    addOrDeleteFilters(States, organizationFields.statesServed, 'add');
+    await addOrDeleteFilters(Disabilities, organizationFields.disabilitiesServed, 'add');
+    await addOrDeleteFilters(Services, organizationFields.servicesProvided, 'add');
+    await addOrDeleteFilters(States, organizationFields.statesServed, 'add');
     // addOrDeleteFilters(TownsNewHampshire, organizationFields.townsNewHampshire, 'add');
     // addOrDeleteFilters(TownsVermont, organizationFields.townsVermont, 'add');
-    addOrDeleteFilters(Insurances, organizationFields.insurancesAccepted, 'add');
+    await addOrDeleteFilters(Insurances, organizationFields.insurancesAccepted, 'add');
   } catch (error) {
     throw new Error(`Could not add filters: ${error}`);
   }
@@ -82,12 +80,12 @@ export const addFilters = async (organizationFields) => {
 
 export const deleteFilters = async (organizationFields) => {
   try {
-    addOrDeleteFilters(Disabilities, organizationFields.disabilitiesServed, 'delete');
-    addOrDeleteFilters(Services, organizationFields.servicesProvided, 'delete');
-    addOrDeleteFilters(States, organizationFields.statesServed, 'delete');
+    await addOrDeleteFilters(Disabilities, organizationFields.disabilitiesServed, 'delete');
+    await addOrDeleteFilters(Services, organizationFields.servicesProvided, 'delete');
+    await addOrDeleteFilters(States, organizationFields.statesServed, 'delete');
     // addOrDeleteDisability(TownsNewHampshire, organizationFields.townsNewHampshire, 'delete');
     // addOrDeleteDisability(TownsVermont, organizationFields.townsVermont, 'delete');
-    addOrDeleteFilters(Insurances, organizationFields.insurancesAccepted, 'delete');
+    await addOrDeleteFilters(Insurances, organizationFields.insurancesAccepted, 'delete');
   } catch (error) {
     throw new Error(`Could not delete filters: ${error}`);
   }

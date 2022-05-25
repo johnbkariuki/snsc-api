@@ -1,5 +1,5 @@
-{
-    "organizations" : [
+{ 
+    "organizations": [
         {
             "name": "(The) Family Place",
             "descriptions": "Work with the whole family to ensure children's physical development, social functioning, ability to learn, and long-term health are supported. Programs include home visits, early intervention for those with developmental delays, nursing services, parenting groups and classes, treatment for families with sexual abuse trauma, assistance with child care costs, supports for young families living in poverty, and community playgroups.",
@@ -18,7 +18,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -44,7 +44,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -70,7 +70,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -96,7 +96,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 15,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -122,7 +122,7 @@
             "townsVermont": [ "Hartford", "Norwich" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -148,7 +148,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -174,7 +174,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -252,7 +252,7 @@
             "townsVermont": [ "Orange", "Washington", "Windsor County" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -278,7 +278,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -304,7 +304,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -330,7 +330,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -356,7 +356,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -408,7 +408,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 18,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": false,
@@ -434,7 +434,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -460,7 +460,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 18,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": false,
@@ -486,7 +486,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -512,7 +512,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -538,7 +538,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 25,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -564,7 +564,7 @@
             "townsVermont": [ "Newport", "Lyndon", "Greensboro", "Morristown", "Colchester", "Waterbury Village Historic District", "Barre", "Randolph", "Bradford", "Springfield", "Brattleboro" ],
             "agesServed":{
                 "lowerRange": 25,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": false,
@@ -616,7 +616,7 @@
             "townsVermont": [ "Barnard", "Bradford", "Bridgewater", "Corinth", "Fairlee", "Hartford", "Hartland", "Newbury", "Norwich", "Pomfret", "Reading", "Royalton", "Sharon", "Strafford", "Thetford", "Topsham", "Tunbridge", "Vershire", "West Fairlee", "West Windsor", "Windsor", "Woodstock" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -642,7 +642,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -668,7 +668,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -694,7 +694,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -720,7 +720,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -746,7 +746,7 @@
             "townsVermont": [ "Windham", "Windsor", "Springfield", "Brattleboro", "Hartford" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -772,7 +772,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -798,7 +798,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -876,7 +876,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -902,7 +902,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 25,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -928,7 +928,7 @@
             "townsVermont": [ "Windham", "Windsor" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -954,7 +954,7 @@
             "townsVermont": [ "Barnard", "Bethel", "Fairlee", "West Fairlee", "Hartford", "West Hartford", "Hartland", "North Hartland", "Norwich", "Pomfret", "Post Mills", "Quechee", "Royalton", "South Royalton", "Sharon", "Strafford", "South Strafford", "Thetford", "East Thetford", "White River Junction", "Wilder", "Woodstock", "South Woodstock" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -980,7 +980,7 @@
             "townsVermont": [ "Bradford", "Chelsea", "Corinth", "Fairlee", "Groton", "Newbury", "Norwich", "Orange", "Ryegate", "Strafford", "Thetford", "Topsham", "Tunbridge", "Vershire", "Washington", "West Fairlee" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1006,7 +1006,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1032,7 +1032,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 18,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": false,
@@ -1058,7 +1058,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1084,7 +1084,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1110,7 +1110,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1136,7 +1136,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1188,7 +1188,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1240,7 +1240,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1266,7 +1266,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 18,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": false,
@@ -1318,7 +1318,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1344,7 +1344,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1370,7 +1370,7 @@
             "townsVermont": [ "Andover", "Baltimore", "Barnard", "Bethel", "Bridgewater", "Cavendish", "Chester", "Hartford", "Hartland", "Hubbardton", "Ludlow", "Norwich", "Plymouth", "Pittsfield", "Pomfret", "Reading", "Rochester", "Royalton", "Sharon", "Springfield", "Stockbridge", "Sudbury", "Weston", "Windsor", "West Haven", "West Windsor" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1396,7 +1396,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1422,7 +1422,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1448,7 +1448,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1474,7 +1474,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1500,7 +1500,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 8,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -1526,7 +1526,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 8,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -1552,7 +1552,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1578,7 +1578,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1656,7 +1656,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1682,7 +1682,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1708,7 +1708,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1734,7 +1734,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1760,7 +1760,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1786,7 +1786,7 @@
             "townsVermont": [ "Bradford", "Moretown", "Randolph" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1812,7 +1812,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1838,7 +1838,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1890,7 +1890,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1916,7 +1916,7 @@
             "townsVermont": [ "Brattleboro", "Rutland", "Berline", "South Burlington" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -1942,7 +1942,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1968,7 +1968,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -1994,7 +1994,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -2046,7 +2046,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -2072,7 +2072,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 25,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -2098,7 +2098,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 50,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": false
             },
             "fee": true,
@@ -2124,7 +2124,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": true,
@@ -2150,7 +2150,7 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -2176,7 +2176,7 @@
             "townsVermont": [ "Fairlee", "Thetford", "Norwich", "Hartford", "Pomfret", "Barnard", "Bridgewater", "Woodstock", "Hartland", "Reading", "West Windsor", "Windsor" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -2202,7 +2202,7 @@
             "townsVermont": [ "None" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
@@ -2228,13 +2228,13 @@
             "townsVermont": [ "All" ],
             "agesServed":{
                 "lowerRange": 0,
-                "upperRange": -1,
+                "upperRange": 100,
                 "allAges": true
             },
             "fee": false,
             "feeDescription": "",
             "insurancesAccepted": [ "None" ],
             "imageURL": "None"
-        }     
+        }
     ]
 }

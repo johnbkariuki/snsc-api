@@ -30,11 +30,9 @@ router.get('/', (req, res) => {
 router.post('/images', requireAuth, upload.single('image'), async (req, res) => {
   try {
     const file = req.file;
-    console.log(file);
     const result = await uploadFile(file);
     await unlinkFile(file.path);
-    console.log(result);
-    res.send({ imagePath: `/images/${result.Key}` });
+    res.send({ imageKey: result.Key });
   } catch (error) {
     console.log(error);
     res.status(422).json({ error: error.toString() });

@@ -1,5 +1,5 @@
-{ 
-    "organizations": [
+{
+    "organizations" : [
         {
             "name": "(The) Family Place",
             "descriptions": "Work with the whole family to ensure children's physical development, social functioning, ability to learn, and long-term health are supported. Programs include home visits, early intervention for those with developmental delays, nursing services, parenting groups and classes, treatment for families with sexual abuse trauma, assistance with child care costs, supports for young families living in poverty, and community playgroups.",
@@ -23,7 +23,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "211 N.H.",
@@ -48,7 +49,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "211 V.T.",
@@ -73,7 +75,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Adaptive Driving Associates",
@@ -98,7 +101,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Advance Transit",
@@ -123,7 +127,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Bart J. Ruggiere Adaptive Sports Center",
@@ -148,7 +153,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Billings Farm",
@@ -173,7 +179,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Brookhaven Treatment and Learning Center",
@@ -198,7 +205,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Child Development Clinic at DHMC",
@@ -223,7 +231,8 @@
             },
             "fee": true,
             "feeDescription": "Insurance Dependent",
-            "insurancesAccepted": [ "Medicaid", "Medicare" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Clara Martin Center",
@@ -248,7 +257,8 @@
             },
             "fee": true,
             "feeDescription": "Fee for rents; 30% of income after first 30 days",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Community Mental Health Centers in New Hampshire",
@@ -273,7 +283,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid", "Medicare" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Crotched Mountain ATECH Services",
@@ -298,7 +309,8 @@
             },
             "fee": true,
             "feeDescription": "For Crotched Mountain School: $20,000 a year",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Deaf Vermont Advocacy Services",
@@ -323,7 +335,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Deer Creek Psychological Associates",
@@ -348,7 +361,8 @@
             },
             "fee": true,
             "feeDescription": "Depends on service (psychotherapy ranges from $95-$189)",
-            "insurancesAccepted": [ "Medicare" ]
+            "insurancesAccepted": [ "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Project SEARCH",
@@ -373,7 +387,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Disability Rights Vermont",
@@ -398,7 +413,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Division for the Blind and Visually Impaired - Springfield, Vermont",
@@ -423,7 +439,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Division of Vocational Rehabilitation, Vermont, Agency of Human Services",
@@ -448,7 +465,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Epilepsy Foundation of Vermont - Rutland, V.T.",
@@ -473,7 +491,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Equality Health Center",
@@ -498,7 +517,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid", "Private" ]
+            "insurancesAccepted": [ "Medicaid", "Private" ],
+            "imageURL": "None"
         },
         {
             "name": "Farmsteads of New England - Hillsborough",
@@ -523,7 +543,8 @@
             },
             "fee": true,
             "feeDescription": "Need Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Global Campus - Shiremont",
@@ -548,7 +569,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Good Beginnings of the Upper Valley",
@@ -573,7 +595,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Good Neighbor Health Clinic",
@@ -598,7 +621,8 @@
             },
             "fee": true,
             "feeDescription": "Free medical/dental services for low-income individuals. Income table for dental care: 1 person: $2,683; 2 people $3,629; 3 people: $4,575; 4 people: $5,521; 5 people: $7,413",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Granite State Independent Living - Concord",
@@ -623,7 +647,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Greater Nashua Mental Health",
@@ -648,7 +673,8 @@
             },
             "fee": true,
             "feeDescription": "Service Dependent",
-            "insurancesAccepted": [ "Medicaid", "Medicare" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Green Mountain Self-Advocates",
@@ -673,7 +699,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Headrest",
@@ -698,7 +725,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Health Care and Rehabilitation Services (HCRS) of Southeastern Vermont",
@@ -723,7 +751,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "High Horses",
@@ -748,7 +777,8 @@
             },
             "fee": true,
             "feeDescription": "Program and length dependent (typically in the $280-$600 range)",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Inclusive Arts Vermont",
@@ -773,7 +803,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Just Kids Pediatric Dentistry - Vermont",
@@ -798,7 +829,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "Private" ]
+            "insurancesAccepted": [ "Private" ],
+            "imageURL": "None"
         },
         {
             "name": "Keene Perspectives, PLLC., WRJ, V.T.",
@@ -823,7 +855,8 @@
             },
             "fee": true,
             "feeDescription": "Insurance Dependent",
-            "insurancesAccepted": [ "Medicare" ]
+            "insurancesAccepted": [ "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Let's Grow Kids",
@@ -848,7 +881,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Life Transition Services",
@@ -873,7 +907,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Lincoln Street, Inc.",
@@ -898,7 +933,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Listen - Community Services and Thrift Stores",
@@ -923,7 +959,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Little Rivers Health Care - Bradford, Wells River, East Cornith, Newbury",
@@ -948,7 +985,8 @@
             },
             "fee": true,
             "feeDescription": "Sliding Fee Scale (determined by specific federal guidelines)",
-            "insurancesAccepted": [ "Medicaid", "Medicare", "Private" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare", "Private" ],
+            "imageURL": "None"
         },
         {
             "name": "Molly's Place at the CHaD Family Center",
@@ -973,7 +1011,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Monadnock Area Peer Support Agency",
@@ -998,7 +1037,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Moonrise Therapeutics - Taftsville, Vermont",
@@ -1023,7 +1063,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "NAMI New Hampshire - NAMI Upper Valley",
@@ -1048,7 +1089,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "National Federatition of the Blind of NH",
@@ -1073,7 +1115,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "NH Department of Health and Human Services Medicaid Program",
@@ -1098,7 +1141,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "NITEO",
@@ -1123,7 +1167,8 @@
             },
             "fee": true,
             "feeDescription": "12000",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Northeast Passage",
@@ -1148,7 +1193,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Partners in Health",
@@ -1173,7 +1219,8 @@
             },
             "fee": false,
             "feeDescription": "Need to be elligible for services",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "PathWay - New Hampshire",
@@ -1198,7 +1245,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid", "Medicare" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Peer Support Agencies",
@@ -1223,7 +1271,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Perkins School for the Blind",
@@ -1248,7 +1297,8 @@
             },
             "fee": true,
             "feeDescription": "Program and Service Dependent (Free - $25,000)",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Seasons Promise",
@@ -1273,7 +1323,8 @@
             },
             "fee": true,
             "feeDescription": "Typically covered with insurance",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "ServiceLink Aging and Disability Resource Center",
@@ -1298,7 +1349,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "SEVCA - SouthEastern Vermont Community Action",
@@ -1323,7 +1375,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Smugglers' Notch Adaptive Program",
@@ -1348,7 +1401,8 @@
             },
             "fee": true,
             "feeDescription": "Summer: $189 per person, per day",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "SNSC",
@@ -1373,7 +1427,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Southwestern Community Services",
@@ -1398,7 +1453,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "Medicaid", "Medicare" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Spark!",
@@ -1423,7 +1479,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Special Olympicsc - New Hampshire",
@@ -1448,7 +1505,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Special Olympics - Vermont",
@@ -1473,7 +1531,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Stepping Stone and Next Step Peer Support and Crisis Respite Centers; Claremont, N.H., Lebanon , N.H.",
@@ -1498,7 +1557,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Stern Center for Language and Learning",
@@ -1523,7 +1583,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "The Office of Children With Special Needs, DMH, Vermont",
@@ -1548,7 +1609,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "The Trevor Project",
@@ -1573,7 +1635,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "TLC Family Resource Center - New Hampshire",
@@ -1598,7 +1661,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "Tri-Valley Transit: Orange and North Windsor Region",
@@ -1623,7 +1687,8 @@
             },
             "fee": true,
             "feeDescription": "No fee or small fee, Insurance Dependent",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "Turning Points Network - New Hampshire",
@@ -1648,7 +1713,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Upper Valley Music Center",
@@ -1673,7 +1739,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Upper Valley Rehab",
@@ -1698,7 +1765,8 @@
             },
             "fee": true,
             "feeDescription": "Insurance Dependent",
-            "insurancesAccepted": [ "Medicare" ]
+            "insurancesAccepted": [ "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Upper Valley Services",
@@ -1723,7 +1791,8 @@
             },
             "fee": true,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "Upper Valley Speech-Language Services",
@@ -1748,7 +1817,8 @@
             },
             "fee": true,
             "feeDescription": "Insurance Dependent",
-            "insurancesAccepted": [ "Medicare" ]
+            "insurancesAccepted": [ "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "VABIR - The Vermont Association of Business Industry and Rehabilitation",
@@ -1773,7 +1843,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Achievement Center - Rutland, Vermont",
@@ -1798,7 +1869,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Adaptive Ski & Sports",
@@ -1823,7 +1895,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Association for the Blind and Visually Impaired-VABVI",
@@ -1848,7 +1921,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Center for Independent Living",
@@ -1873,7 +1947,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Department of Libraries- Able Library",
@@ -1898,7 +1973,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Family Network",
@@ -1923,7 +1999,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Vermont Federation of Families for Children's Mental Health",
@@ -1948,7 +2025,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "VINS - Vermont Institute of Natural Science",
@@ -1973,7 +2051,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Visions",
@@ -1998,7 +2077,8 @@
             },
             "fee": true,
             "feeDescription": "$720 a month for room and board",
-            "insurancesAccepted": [ "Medicaid", "Medicare" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare" ],
+            "imageURL": "None"
         },
         {
             "name": "Visiting Nurse and Hospice of VT and NH",
@@ -2023,7 +2103,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent",
-            "insurancesAccepted": [ "Medicare", "Private" ]
+            "insurancesAccepted": [ "Medicare", "Private" ],
+            "imageURL": "None"
         },
         {
             "name": "Vital Communities",
@@ -2048,7 +2129,8 @@
             },
             "fee": true,
             "feeDescription": "Program Dependent, Most are free",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "West Central Behavioral Health - New Hampshire",
@@ -2073,7 +2155,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid" ]
+            "insurancesAccepted": [ "Medicaid" ],
+            "imageURL": "None"
         },
         {
             "name": "Wise - Woman's Information Services",
@@ -2098,7 +2181,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
         },
         {
             "name": "Work Opportunities Unlimited- New Hampshire",
@@ -2123,7 +2207,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "Medicaid", "Medicare", "Private" ]
+            "insurancesAccepted": [ "Medicaid", "Medicare", "Private" ],
+            "imageURL": "None"
         },
         {
             "name": "Zack's Place - Woodstock, Vermont",
@@ -2148,7 +2233,8 @@
             },
             "fee": false,
             "feeDescription": "",
-            "insurancesAccepted": [ "None" ]
-        }
+            "insurancesAccepted": [ "None" ],
+            "imageURL": "None"
+        }     
     ]
 }

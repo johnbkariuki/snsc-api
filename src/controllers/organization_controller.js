@@ -194,6 +194,7 @@ export const autoComplete = async (searchFields) => {
           fee: 1,
           feeDescription: 1,
           insurancesAccepted: 1,
+          imageURL: 1,
           // score: { $meta: 'searchScore' },
         },
       },

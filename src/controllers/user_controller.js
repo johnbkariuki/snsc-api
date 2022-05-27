@@ -315,7 +315,7 @@ export const sendFeedbackEmail = async (senderEmail, feedback, feedbackTypes) =>
       html: `
       <div>
       <p><strong>From:</strong>${senderEmail}</p>
-      <p><strong>Feedback type:</strong>${feedbackTypes}</p>
+      <p><strong>Feedback Issue Type:</strong>${feedbackTypes}</p>
       <p><strong>Feedback:</strong></p>
       <p>${feedback}</p>
       <p>&nbsp;</p>

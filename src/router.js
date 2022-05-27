@@ -352,6 +352,17 @@ const handleVerifyOTP = async (req, res) => {
   }
 };
 
+// feedback email
+const handleFeedbackEmail = async (req, res) => {
+  try {
+    // req.body needs senderEmail, feedback, and feedbackTypes
+    const result = await userController.sendFeedbackEmail(req.body.senderEmail, req.body.feedback, req.body.feedbackTypes);
+    res.send(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
 // routes
 router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
 router.route('/user/password').put(requireAuth, handleUpdatePassword);
@@ -387,5 +398,8 @@ router.route('/verifyOTP').post(handleVerifyOTP);
 // images routes
 router.route('/images/:key').get(handleGetImage);
 router.route('/images/:key').delete(requireAuth, handleDeleteImage);
+
+// send feedback email
+router.route('/feedback').post(handleFeedbackEmail);
 
 export default router;

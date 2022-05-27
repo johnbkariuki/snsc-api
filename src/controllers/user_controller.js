@@ -280,3 +280,51 @@ export const verifyOTP = async (params) => {
   }
   throw new Error('Invalid OTP');
 };
+
+export const sendFeedbackEmail = async (senderEmail, feedback, feedbackTypes) => {
+  try {
+    const recipientsList = ['snscapp@gmail.com'];
+    if (senderEmail !== 'Anonymous') {
+      recipientsList.push(senderEmail);
+    }
+
+    // https://developers.google.com/oauthplayground/#step2&scopes=https%3A%2F%2Fmail.google.com&url=https%3A%2F%2F&content_type=application%2Fjson&http_method=GET&useDefaultOauthCred=checked&oauthEndpointSelect=Google&oauthAuthEndpointValue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&oauthTokenEndpointValue=https%3A%2F%2Foauth2.googleapis.com%2Ftoken&includeCredentials=unchecked&accessTokenType=bearer&autoRefreshToken=unchecked&accessType=offline&prompt=consent&response_type=code&wrapLines=on
+    // follow the above link in case of trouble
+    const accessToken = await oAuth2Client.getAccessToken();
+
+    const transport = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        type: 'OAuth2',
+        user: 'snscapp@gmail.com',
+        clientId: CLIENT_ID,
+        clientSecret: CLIENT_SECRET,
+        refreshToken: REFRESH_TOKEN,
+        // below is equivalent to accessToken = accessToken
+        accessToken,
+      },
+      tls: {
+        rejectUnauthorized: false,
+      },
+    });
+
+    const email = await transport.sendMail({
+      from: 'SNSC App (No-Reply) <snscapp@gmail.com>',
+      to: recipientsList,
+      subject: 'Feedback report',
+      html: `
+      <div>
+      <p><strong>From:</strong>${senderEmail}</p>
+      <p><strong>Feedback type:</strong>${feedbackTypes}</p>
+      <p><strong>Feedback:</strong></p>
+      <p>${feedback}</p>
+      <p>&nbsp;</p>
+      <p>Sent from the SNSC app</p>
+   </div>
+    `,
+    });
+    return email;
+  } catch (error) {
+    throw new Error(`Could not send feedback email: ${error}`);
+  }
+};

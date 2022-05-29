@@ -113,6 +113,15 @@ export const getUser = async (id) => {
   }
 };
 
+export const deleteUser = async (userId) => {
+  try {
+    const result = await User.findByIdAndRemove(userId);
+    return result;
+  } catch (error) {
+    throw new Error(`could not delete the user: ${error}`);
+  }
+};
+
 // make sure it updates everything but the userId
 export const updateUser = async (userId, userFields) => {
   try {

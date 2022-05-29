@@ -66,8 +66,16 @@ const handleDeleteImage = async (req, res) => {
 // user functions
 const handleGetUser = async (req, res) => {
   try {
-    console.log(req.user);
     const result = await userController.getUser(req.user.id);
+    res.json(result);
+  } catch (error) {
+    res.status(500).json({ error: error.toString() });
+  }
+};
+
+const handleDeleteUser = async (req, res) => {
+  try {
+    const result = await userController.deleteUser(req.user.id);
     res.json(result);
   } catch (error) {
     res.status(500).json({ error: error.toString() });
@@ -364,7 +372,7 @@ const handleFeedbackEmail = async (req, res) => {
 };
 
 // routes
-router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser);
+router.route('/user').get(requireAuth, handleGetUser).put(requireAuth, handleUpdateUser).delete(requireAuth, handleDeleteUser);
 router.route('/user/password').put(requireAuth, handleUpdatePassword);
 router.route('/user/resetPassword').put(requireAuth, handleResetPassword);
 router.route('/user/favorites/add/:id').put(requireAuth, handleSaveToFavorites);

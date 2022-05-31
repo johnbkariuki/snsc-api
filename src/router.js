@@ -130,17 +130,17 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-router.post('/admin/signup', async (req, res) => {
-  try {
-    const result = await userController.adminSignup(req.body);
-    res.json({
-      token: result.token, name: result.user.name, email: result.user.email, password: req.body.password, isAdmin: result.user.isAdmin,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(422).json({ error: error.toString() });
-  }
-});
+// router.post('/admin/signup', async (req, res) => {
+//   try {
+//     const result = await userController.adminSignup(req.body);
+//     res.json({
+//       token: result.token, name: result.user.name, email: result.user.email, password: req.body.password, isAdmin: result.user.isAdmin,
+//     });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(422).json({ error: error.toString() });
+//   }
+// });
 
 router.post('/login', requireSignin, async (req, res) => {
   try {

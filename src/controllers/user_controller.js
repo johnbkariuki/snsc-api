@@ -180,8 +180,6 @@ export const resetPassword = async (userId, newPassword) => {
 
 const sendMail = async (otp, userEmail) => {
   try {
-    // https://developers.google.com/oauthplayground/#step2&scopes=https%3A%2F%2Fmail.google.com&url=https%3A%2F%2F&content_type=application%2Fjson&http_method=GET&useDefaultOauthCred=checked&oauthEndpointSelect=Google&oauthAuthEndpointValue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&oauthTokenEndpointValue=https%3A%2F%2Foauth2.googleapis.com%2Ftoken&includeCredentials=unchecked&accessTokenType=bearer&autoRefreshToken=unchecked&accessType=offline&prompt=consent&response_type=code&wrapLines=on
-    // follow the above link in case of trouble
     const accessToken = await oAuth2Client.getAccessToken();
 
     const transport = nodemailer.createTransport({
